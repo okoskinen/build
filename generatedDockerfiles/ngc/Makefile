@@ -45,7 +45,7 @@ build_test_image:
 
 
 test_current:
-	nvidia-docker run -w $(shell pwd) -v $(shell pwd):$(shell pwd) -v $(shell pwd)/../../:/rapids_native -ti --rm --cap-add=SYS_PTRACE -e NVIDIA_VISIBLE_DEVICES=0 rapids:$(VERSION)-$(GIT_COMMIT) ./setup_tests.sh
+	nvidia-docker run -w $(shell pwd) -v $(shell pwd):$(shell pwd) -v $(shell pwd)/../../:/rapids_native -t --rm --cap-add=SYS_PTRACE -e NVIDIA_VISIBLE_DEVICES=0 rapids:$(VERSION)-$(GIT_COMMIT) ./setup_tests.sh
 
 clean:
 	-docker rmi rapids:$(VERSION)-$(GIT_COMMIT) rapids:$(VERSION)-cuda9.2-$(GIT_COMMIT)
